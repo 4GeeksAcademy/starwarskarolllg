@@ -17,6 +17,13 @@ class User(Base):
     password = Column(String(50), nullable=False, unique=False)
     favorites = relationship("Favorite", back_populates="user")
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "email": self.email
+        }
+
 class Character(Base):
     __tablename__ = 'character'
     # Here we define columns for the table address.
@@ -26,6 +33,13 @@ class Character(Base):
     description = Column(String(500), nullable=False)
     favorites = relationship("Favorite", back_populates="character")
 
+def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "description": self.description
+        }
+
 class Planet(Base):
     __tablename__ = 'planet'
     # Here we define columns for the table address.
@@ -34,6 +48,13 @@ class Planet(Base):
     planet_name = Column(String(150), unique=True, nullable=False)
     description = Column(String(500), nullable=False)
     favorites = relationship("Favorite", back_populates="planet")
+
+def to_dict(self):
+        return {
+            "id": self.id,
+            "planet_name": self.planet_name,
+            "description": self.description
+        }
 
 class Favorite(Base):
     __tablename__ = 'favorites'
