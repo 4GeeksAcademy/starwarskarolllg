@@ -80,4 +80,4 @@ def to_dict(self):
         }
 
 ## Draw from SQLAlchemy base
-render_er(Base, 'diagram.png')
+render_er(Base, 'diagramastarwrs.png')
